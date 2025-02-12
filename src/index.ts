@@ -1,10 +1,13 @@
-// import express from 'express';
-import express from 'express';
-import dotenv from 'dotenv';
-dotenv.config({ path: './.env' });
+import express from "express";
+import dotenv from "dotenv";
+dotenv.config({ path: "./.env" });
 
-import api from '@/routes/api';
+import api from "@/routes/api";
+import sequelize from "@/db";
 
+sequelize.authenticate()
+.then(() => console.log('Connection has been stablished successfully.'))
+.catch(e => console.error('Unable to connect to the database: ', e));
 
 const app = express();
 

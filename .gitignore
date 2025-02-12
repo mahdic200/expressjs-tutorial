@@ -1,7 +1,11 @@
-/node_modules
-/dist
+# development files and folders
 /.vscode
 /.github
-/package-lock.json
-/.env
+/node_modules
 /public
+/dist
+
+# project configuration files
+/.env
+/package-lock.json
+

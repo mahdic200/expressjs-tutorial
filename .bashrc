@@ -1,0 +1,1 @@
+alias sequelize="npx sequelize-cli"
