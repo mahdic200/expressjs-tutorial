@@ -16,13 +16,25 @@ module.exports = {
           primaryKey: true,
           allowNull: false,
       },
-      firstName: {
+      first_name: {
           type: Sequelize.DataTypes.STRING,
           allowNull: false,
       },
-      lastName: {
+      last_name: {
           type: Sequelize.DataTypes.STRING,
           allowNull: true,
+      },
+      phone: {
+          type: Sequelize.DataTypes.STRING(11),
+          allowNull: false,
+      },
+      created_at: {
+        type: Sequelize.DataTypes.TIME,
+        allowNull: false,
+      },
+      updated_at: {
+        type: Sequelize.DataTypes.TIME,
+        allowNull: false,
       },
     });
   },

@@ -11,18 +11,34 @@ User.init(
             primaryKey: true,
             allowNull: false,
         },
-        firstName: {
+        first_name: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        lastName: {
+        last_name: {
             type: DataTypes.STRING,
+            allowNull: true,
+        },
+        phone: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true,
+        },
+        created_at: {
+            type: DataTypes.TIME,
+            allowNull: false,
+        },
+        updated_at: {
+            type: DataTypes.TIME,
             allowNull: true,
         },
     },
     {
         sequelize,
         modelName: "User",
+        tableName: "users",
+        createdAt: "created_at",
+        updatedAt: "updated_at",
     },
 );
 
