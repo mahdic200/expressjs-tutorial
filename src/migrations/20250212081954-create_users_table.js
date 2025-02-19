@@ -34,7 +34,11 @@ module.exports = {
       },
       updated_at: {
         type: Sequelize.DataTypes.TIME,
-        allowNull: false,
+        allowNull: null,
+      },
+      deleted_at: {
+        type: Sequelize.DataTypes.TIME,
+        allowNull: true,
       },
     });
   },

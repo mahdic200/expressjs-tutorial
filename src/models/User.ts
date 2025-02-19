@@ -39,6 +39,9 @@ User.init(
         tableName: "users",
         createdAt: "created_at",
         updatedAt: "updated_at",
+        /* enabling soft deletes */
+        paranoid: true,
+        deletedAt: "deleted_at",
     },
 );
 

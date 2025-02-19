@@ -8,11 +8,11 @@ z.setErrorMap(customErrorMap);
 const ValidationMiddleware = (schema: z.ZodObject<any, any>) => {
     return (req: Request, res: Response, next: NextFunction) => {
         try {
-            console.log(req.body)
             schema.parse(req.body);
             next();
         } catch (e) {
             if (e instanceof ZodError) {
+                const defaultError = e.errors[0].message;
                 const errorMessages = e.errors.map((issue) => {
                     let obj: any = {};
                     const index = issue.path[0] as any;
@@ -20,7 +20,7 @@ const ValidationMiddleware = (schema: z.ZodObject<any, any>) => {
                     return obj;
                 });
                 res.status(StatusCodes.BAD_REQUEST).json({
-                    message: "invalid data",
+                    message: defaultError,
                     details: errorMessages,
                 })
             } else {
